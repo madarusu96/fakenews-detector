@@ -11,14 +11,11 @@ function App() {
   const handleNewsSubmit = async (input: string) => {
     console.log("User Input:", input);
 
-    // Obține rezultatele de la backend
     const results = await sendLinkToBackend(input);
     if (!results || results.length === 0) return;
 
-    // Extrage scorul
     const score = results[0].score || 0;
 
-    // Mapează etichetele returnate
     const labelMapping: { [key: string]: string } = {
       LABEL_0: "fake news",
       LABEL_1: "misinformation",
@@ -27,10 +24,8 @@ function App() {
       LABEL_4: "satire",
     };
 
-    // Obține eticheta corespunzătoare
     const label = labelMapping[results[0].label] || "Unknown";
 
-    // Creează un obiect de rezultat
     const fakeResponse: AnalysisResult = {
       score: score,
       isFake:
@@ -40,7 +35,6 @@ function App() {
       details: label,
     };
 
-    console.log(results, "results");
     setResult(fakeResponse);
   };
   return (
@@ -55,7 +49,6 @@ function App() {
       <main className="w-full max-w-xl p-8 bg-white rounded-lg shadow-lg mt-6">
         <NewsInput onSubmit={handleNewsSubmit} />
 
-        {/* Afișarea rezultatului */}
         {result && <Results result={result} />}
       </main>
     </div>

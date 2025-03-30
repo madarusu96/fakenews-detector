@@ -15,7 +15,6 @@ interface ResultsProps {
 const Results: React.FC<ResultsProps> = ({ result }) => {
   const { score, isFake, details } = result;
 
-  // Mapează culorile pe baza etichetei
   const labelColors: Record<Label, string> = {
     "fake news": "bg-red-500",
     misinformation: "bg-yellow-500",
@@ -24,8 +23,7 @@ const Results: React.FC<ResultsProps> = ({ result }) => {
     satire: "bg-blue-500",
   };
 
-  // Asigură-te că detaliile sunt valide înainte de a indexa în labelColors
-  const labelClass = labelColors[details as Label] || "bg-gray-500"; // Aici castăm 'details' la 'Label'
+  const labelClass = labelColors[details as Label] || "bg-gray-500";
 
   return (
     <div className="mt-6 p-6 bg-white rounded-lg shadow-md">

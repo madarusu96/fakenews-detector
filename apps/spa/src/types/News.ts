@@ -1,11 +1,11 @@
 export interface AnalysisResult {
-  score: number; // Probability score (0-100%)
-  isFake: boolean; // True if detected as fake
-  details: string; // Analysis explanation
+  score: number;
+  isFake: boolean;
+  details: string;
 }
 
 export interface NewsInput {
-  text: string; // Input text or URL
+  text: string;
 }
 
 export interface BackendResponse {
