@@ -1,5 +1,5 @@
 {
-  "name": "monorepo-pnpm",
+  "name": "fakenews-detector",
   "private": true,
   "scripts": {
     "build": "turbo build",
