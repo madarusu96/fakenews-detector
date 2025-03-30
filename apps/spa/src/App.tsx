@@ -1,15 +1,11 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { Button } from "@repo/ui";
 import { AnalysisResult } from "./types/News";
 import NewsInput from "./components/NewsInput";
 import Results from "./components/Results";
 import { sendLinkToBackend } from "./api/sendLinkToBackend";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [result, setResult] = useState<AnalysisResult | null>(null);
 
   const handleNewsSubmit = async (input: string) => {
